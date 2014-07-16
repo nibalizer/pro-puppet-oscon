@@ -28,6 +28,9 @@
     }
 
 
+
+
+
 !SLIDE
 
 # Abstracting Data with Hiera #
@@ -50,6 +53,7 @@
 
 
 
+
 !SLIDE bullets incremental
 
 # Abstracting Data with Hiera #
@@ -64,14 +68,26 @@
 * default and overrides
 
 
-!SLIDE
+
+!SLIDE commandline incremental
+
 
 # Abstracting Data with Hiera #
-
 ## Demonstration ##
 
+    # cat /etc/puppet/hieradata/common.yaml 
+    ---
+    mysql_root_password: hunter2
 
 
+
+    # hiera -d mysql_root_password
+    DEBUG: Hiera YAML backend starting
+    DEBUG: Looking up mysql_root_password in YAML backend
+    DEBUG: Looking for data source common
+    DEBUG: Found mysql_root_password in common
+
+    hunter2
 
 
 
@@ -89,5 +105,3 @@
 
 .notes backend to encrypt
 .notes data bindings
-
-

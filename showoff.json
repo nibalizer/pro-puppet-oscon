@@ -1,1 +1,12 @@
-{ "name": "My Preso", "sections": [ {"section":"one"} ]}
+{
+    "author": [
+        "Spencer Krum",
+        "William Van Hevelingen"
+    ],
+    "name": "OSCON 2014 Pro Puppet Talk",
+    "sections": [
+        {
+            "section": "one"
+        }
+    ]
+}

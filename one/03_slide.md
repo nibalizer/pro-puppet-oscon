@@ -105,3 +105,34 @@
 
 .notes backend to encrypt
 .notes data bindings
+
+!SLIDE
+
+# Backends #
+
+* file
+* yaml
+* gpg
+* eyaml
+* db
+
+!SLIDE
+
+# Pros #
+
+* Separtion between data and code
+* Composable classes via data bindings
+* Backends, integration with existing datastores
+* Puppet code sanitizied
+
+# Cons #
+
+* data bindings
+* hard to figure out where things come from
+* hiera-yaml can only support one data directory
+* debugging
+
+
+
+
+

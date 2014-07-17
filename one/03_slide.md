@@ -65,13 +65,15 @@
 
 
 
-!SLIDE
+!SLIDE code
 
 # Abstracting Data with Hiera #
 
     @@@puppet
+    $password = hiera('mysql_root_password')
+
     class { 'mysql::server':
-        root_password => hiera('mysql_root_password'),
+      root_password => $password,
     }
 
 
@@ -79,11 +81,10 @@
 
 # Backends #
 
-* file
-* yaml
-* gpg
-* eyaml
-* db
+* yaml, json
+* file, ldap
+* gpg, eyaml
+* mysql, postgres, redis
 
 !SLIDE
 

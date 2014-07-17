@@ -7,10 +7,10 @@
 
 # Openstack puppet #
 
-openstack::server ->
-openstack::template ->
-openstack::base ->
-file['puppet.conf'],
+* openstack::server ->
+* openstack::template ->
+* openstack::base ->
+* file['puppet.conf'],
 
 !SLIDE
 
@@ -34,10 +34,19 @@ file['puppet.conf'],
 
 !SLIDE
 
-Roles include profiles
-profiles include resources
-resources come from two places
-puppet core and modules
+* nodes include roles
+* roles include profiles
+* profiles include resources and classes
+* resources come from two places
+* puppet core and modules
+
+!SLIDE
+
+TODO: Block diagram of Garys interperation
+
+!SLIDE
+
+TODO: Block diagram of our interpretation
 
 !SLIDE
 
@@ -87,10 +96,3 @@ puppet core and modules
       include cecs::role::killvnc
       include cecs::role::license::comsol
     }
-
-
-
-
-
-
-

@@ -77,7 +77,7 @@ TODO: Block diagram of our interpretation
 
 
 
-!SLIDE full-page code
+!SLIDE code
 
 # Base class and service-mapped roles #
 

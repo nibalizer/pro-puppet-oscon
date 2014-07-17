@@ -13,11 +13,11 @@
 * Facts
 * Infos
 
-!SLIDE bullets
+!SLIDE
 
 # William Van Hevelingen #
 
-* Sysadmin at Portland State University
-* Puppet Community Module Maintainer
-* [@pdx_blkperl](https://twitter.com/pdx_blkperl)
-* blkperl on IRC
+*  Sysadmin at Portland State University
+*  Puppet Community Module Maintainer
+*  @pdx_blkperl
+*  blkperl on IRC

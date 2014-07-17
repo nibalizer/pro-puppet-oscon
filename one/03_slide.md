@@ -1,44 +1,15 @@
 !SLIDE
 
-# Abstracting Data with Hiera #
-
-## Without Hiera ##
-
-### Data in code ###
-
+# Data in code
 
     @@@puppet
     class { 'jenkins::slave':
         jenkins_ssh_key => 'AAAAB3NzaC1yc2EAAAAD...'
     }
 
-
-
 !SLIDE
 
-# Abstracting Data with Hiera #
-
-## Without Hiera ##
-
-### Secrets in code ###
-
-    @@@puppet
-    class { 'mysql::server':
-        root_password => 'hunter2',
-    }
-
-
-
-
-
-!SLIDE
-
-# Abstracting Data with Hiera #
-
-## Without Hiera ##
-
-### Secrets in code ###
-
+# Conditional data in code
 
     @@@puppet
     class { 'graphite':
@@ -52,16 +23,21 @@
     }
 
 
+!SLIDE
+
+# Secrets in code
+
+    @@@puppet
+    class { 'mysql::server':
+        root_password => 'hunter2',
+    }
 
 
 !SLIDE bullets incremental
 
 # Abstracting Data with Hiera #
 
-## High Level ##
-
-
-* place to put your data
+* a place to put your data
 * backend driven
 * function call to lookup on keys
 * hierarchy that is facter aware
@@ -73,12 +49,10 @@
 
 
 # Abstracting Data with Hiera #
-## Demonstration ##
 
     # cat /etc/puppet/hieradata/common.yaml 
     ---
     mysql_root_password: hunter2
-
 
 
     # hiera -d mysql_root_password
@@ -95,16 +69,11 @@
 
 # Abstracting Data with Hiera #
 
-## Demonstration ##
-
-
     @@@puppet
     class { 'mysql::server':
         root_password => hiera('mysql_root_password'),
     }
 
-.notes backend to encrypt
-.notes data bindings
 
 !SLIDE
 
@@ -125,14 +94,12 @@
 * Backends, integration with existing datastores
 * Puppet code sanitizied
 
+!SLIDE
+
 # Cons #
 
 * data bindings
 * hard to figure out where things come from
 * hiera-yaml can only support one data directory
 * debugging
-
-
-
-
 

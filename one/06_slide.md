@@ -35,9 +35,7 @@
 
     @@@ruby
     require 'spec_helper'
-
     describe 'collectd' do
-
      let :facts do
        {:osfamily => 'RedHat'}
      end

@@ -125,10 +125,20 @@
 
 !SLIDE
 
-# Profile #
+# Roles #
 
     @@@puppet
-    class profile::pg_server (){
+    class role::dbserver {
+      include profile::mysqlserver
+      include profile::pgserver
+    }
+
+!SLIDE
+
+# Profiles #
+
+    @@@puppet
+    class profile::pgserver (){
         class { 'postgresql::globals': } ->
         class { 'postgresql::server': }
         cron { 'backup_postgres.sh':
@@ -156,7 +166,7 @@
 
 !SLIDE code
 
-# Base class with roles #
+# Base class with profiles #
 
 
     @@@puppet
@@ -169,9 +179,9 @@
         root_level    => 'junior_rooters',
       }
 
-      include cecs::role::linux_login_sys
-      include cecs::role::killvnc
-      include cecs::role::license::comsol
+      include cecs::profile::linux_login_sys
+      include cecs::profile::killvnc
+      include cecs::profile::license::comsol
     }
 
 

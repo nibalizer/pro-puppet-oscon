@@ -2,10 +2,82 @@
 
 # Architecting the code base #
 
+!SLIDE
+
+# Things to avoid #
+
+  * node inhertiance
+  * code in node definitions
+  * code in site.pp
+  * multiple levels of class inheritance
+  * class nesting
+  * repeating yourself
 
 !SLIDE
 
-# Openstack puppet #
+# Node Inheritance #
+
+    @@@puppet
+    node tlab-blades
+    {
+      include cecs::role::linux_teuscher_sys
+      include cecs::role::server
+    }
+
+    node 'taffey.ece.pdx.edu'
+      inherits tlab-blades
+    {
+      include nvidia
+    }
+
+!SLIDE
+
+# Code in node definitions
+
+    @@@puppet
+    node oscon {
+      include web
+      include apache
+      include puppet::client
+
+      $action = '/usr/bin/oscon speak'
+
+      cron { 'speak_on_puppet':
+        command => $action,
+      }
+
+      # more code
+    }
+
+!SLIDE
+
+# Code in site.pp
+
+    @@@puppet
+    # /etc/puppet/manifests/site.pp
+
+    File {
+      owner => '0',
+      group => '0',
+    }
+
+    import 'nodes/*.pp'
+
+    include puppet::client
+
+!SLIDE
+
+# Multiple levels of class inheritance ##
+
+    @@@puppet
+    class server inherits base
+    class webs   inherits server
+    class nginx  inherits webserver
+    class myapp  inherits nginx
+
+!SLIDE
+
+# Class nesting #
 
 * openstack::server ->
 * openstack::template ->
@@ -14,23 +86,20 @@
 
 !SLIDE
 
-  * node inhertiance
-  * multiple levels of class inheritance
-  * cross module dependencies
-  * global code in site.pp
-  * long node definitions
-  * repeating yourself
+# How to not repeat yourself #
+
+* Use templates instead of multiple files
+* Use parametized classes instead of duplicating classes
+* Abstract business logic into process specific modules
 
 !SLIDE bullets incremental
 
 # Roles and Profiles #
 
-
 *  Node definitions should only include roles
 *  Two ways to do this
 *  role per machine type
 *  Base class and service-mapped roles
-
 
 !SLIDE
 
@@ -70,10 +139,12 @@ TODO: Block diagram of our interpretation
 
 !SLIDE
 
-# Role per Machine Type #
-
+# One role per node #
 
     @@@puppet
+
+
+
     node 'paste.openstack.org' {
       class { 'openstack_project::paste':
         db_host     => hiera('paste_db_host', 'localhost'),
@@ -86,7 +157,7 @@ TODO: Block diagram of our interpretation
 
 !SLIDE code
 
-# Base class and service-mapped roles #
+# Base class with roles #
 
 
     @@@puppet

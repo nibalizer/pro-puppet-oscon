@@ -110,19 +110,18 @@
 * puppet core and modules
 
 
-!SLIDE
 
-![testimg.png](testimg.png)
-
+!SLIDE center
 
 
-!SLIDE
+![glariza_roles_and_profiles.jpg](glariza_roles_and_profiles.jpg)
 
-TODO: Block diagram of Garys interperation
 
-!SLIDE
+!SLIDE center
 
-TODO: Block diagram of our interpretation
+
+![us_roles_and_profiles.jpg](us_roles_and_profiles.jpg)
+
 
 !SLIDE
 

@@ -2,10 +2,6 @@
 
 # Integrating External Tools #
 
-!SLIDE
-
-pulp
-
 !SLIDE commandline incremental
 
 ## puppet lint #

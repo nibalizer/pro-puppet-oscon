@@ -31,6 +31,7 @@
     DEBUG: Looking up jenkins_key in YAML backend
     DEBUG: Looking for data source common
     DEBUG: Found jenkins_key in common
+
     AAAAB3NzaC1yc2EAAAADAQAB...
 
 !SLIDE code
@@ -88,15 +89,15 @@
 # Conditional data in code
 
     @@@puppet
-    class { 'graphite':
-        if $::osfamily == 'RedHat' {
-            $pkgs = [
-                'git',
-                'python-django',
-                'g++',
-                'sqlite3',]
-        ...
-        }
+    class graphite {
+      if $::osfamily == 'RedHat' {
+        $pkgs = [
+            'git',
+            'python-django',
+            'g++',
+            'sqlite3',]
+      ...
+      }
     }
 
 
@@ -147,7 +148,7 @@
 
 # Hiera data
 
-    # find .
+    # find /etc/puppet/hieradata
     .
     ./common.yaml
     ./osfamily
@@ -202,6 +203,14 @@
 
     # hiera graphite::pkgs  osfamily=Debian
     ["graphite", "python-django", "virtualenv"]
+
+
+!SLIDE commandline incremental
+
+# Hiera data
+
+    # hiera graphite::pkgs  
+    nil
 
 
 
@@ -285,4 +294,9 @@
 
 
 [puppet-module-data](https://github.com/ripienaar/puppet-module-data/)
+
+
+!SLIDE
+
+# Questions on Hiera
 

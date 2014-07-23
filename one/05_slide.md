@@ -40,6 +40,13 @@
 * resources come from two places
 * puppet core and modules
 
+
+!SLIDE
+
+![testimg.png](testimg.png)
+
+
+
 !SLIDE
 
 TODO: Block diagram of Garys interperation
@@ -96,3 +103,8 @@ TODO: Block diagram of our interpretation
       include cecs::role::killvnc
       include cecs::role::license::comsol
     }
+
+
+!SLIDE 
+
+# Questions on Architecture?

@@ -1,26 +1,22 @@
-!SLIDE
-# Pro Puppet #
+!SLIDE center
 
-!SLIDE bullets
 
-* Spencer Krum
-* William Van Hevelingen
+# Pro Puppet
+
+![oscon2014logo.png](oscon2014logo.png)
 
 !SLIDE bullets incremental
 
 # Spencer Krum #
 
-* Facts
-* Infos
+![hphelion.PNG](hphelion.PNG)
 
 !SLIDE
 
-
 # William Van Hevelingen #
 
-*  Sysadmin at Portland State University
-*  Puppet Community Module Maintainer
-*  @pdx_blkperl
-*  blkperl on IRC
-
 ![psulogo.png](psulogo.png)
+
+!SLIDE center
+
+![propuppet.png](propuppet.png)
